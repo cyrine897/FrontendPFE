@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sahty-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: angular.local
+      http:
+        paths:
+          # Tous les appels commençant par /sahty/api/... vont vers Spring Boot
+          - path: /sahty/(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: springboot-service
+                port:
+                  number: 8089
+          # Tout le reste va vers Angular
+          - path: /(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: angular-service
+                port:
+                  number: 80
+
