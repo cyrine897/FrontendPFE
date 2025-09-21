@@ -7,7 +7,7 @@ import { DossierMedical } from '../model/dossier-medical';
   providedIn: 'root'
 })
 export class DossierService {
-  private baseUrl = 'http://spring.local/sahty/api/auth'; // URL de votre API backend
+  private baseUrl = 'http://localhost:8089/sahty/api/auth'; // URL de votre API backend
 
   constructor(private http: HttpClient) { }
   uploadFile(file: File, idUser: number): Observable<any> {
