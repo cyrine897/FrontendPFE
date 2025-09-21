@@ -22,10 +22,7 @@ export class DossierService {
     const url = `your-api-endpoint/${email}`;
     return this.http.post<any>(`${this.baseUrl}/save/${email}`, formData);
   }
-  saveDossierMedical(email: string, formData: FormData): Observable<any> {
-    const url = `your-api-endpoint/${email}`;
-    return this.http.post<any>(`${this.baseUrl}/save/${email}`, formData);
-  }
+ 
 
   downloadFiles(fileName: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/${fileName}`, { responseType: 'arraybuffer' });
