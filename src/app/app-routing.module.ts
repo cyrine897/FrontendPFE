@@ -15,7 +15,7 @@ import { WelcomepageComponent } from './welcomepage/welcomepage.component';
 
 const routes: Routes = [
   { path: 'medecin', component: MedecinComponent },
-    { path: 'patient', component: MedecinComponent },
+    { path: 'pat
 
   { path: 'adminPage', component: AdminPageComponent },
   { path: 'TableMedecin', component: TablesMedecinComponent },
